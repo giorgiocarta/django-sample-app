@@ -1,0 +1,17 @@
+{% with report.nearbyfacilitiesreportrequest_set.all|first as report_request %}
+<article class="media content-section nearbyfacilitiesreportrequest">
+    <img class="rounded-circle article-img" width=100px" src="">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ report.state }}</a>
+            <small class="text-muted">{{ report.date_submitted|date:"F d, Y" }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ report.title }}</a></h2>
+        <p class="article-content">Report type: {{ report.report_type }}</p>
+        <p class="article-content">Requested Eircode: {{ report_request.eircode }}</p>
+        <p class="article-content">Latitude: {{ report_request.latitude }}</p>
+        <p class="article-content">Longitude: {{ report_request.longitude }}</p>
+        <p class="article-content">Request radius: {{ report_request.area_radius_meters }}</p>
+    </div>
+</article>
+{% endwith %}

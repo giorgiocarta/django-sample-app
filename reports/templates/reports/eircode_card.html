@@ -1,0 +1,16 @@
+<!-- Eircode -->
+{% with report.eircodereportrequest_set.all|first as report_request %}
+<article class="media content-section">
+    <img class="rounded-circle article-img" width=100px" src="">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ report.state }}</a>
+            <small class="text-muted">{{ report.date_submitted|date:"F d, Y" }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ report.title }}</a></h2>
+        <p class="article-content">Report type: {{ report.report_type }}</p>
+        <p class="article-content">Requested eircode: {{ report_request.eircode }}</p>
+        <p class="article-content">Image provided: {{ report_request.image }}</p>
+    </div>
+</article>
+{% endwith %}
